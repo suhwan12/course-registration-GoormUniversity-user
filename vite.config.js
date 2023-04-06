@@ -14,11 +14,11 @@ export default defineConfig({
     server:{
       proxy:{
         "/api":{ 
-          target: "http://localhost:8080/api/",
+          target: "http://k8s-default-backing-8476de3e44-889811917.ap-northeast-2.elb.amazonaws.com/api/",
           rewrite: (path)=>path.replace(/^\/api/,""),
         },
         "/mlapp":{ 
-          target: "http://127.0.0.1:5000/mlapp/",
+          target: "http://k8s-default-mling-8ad2ca83ed-1581733671.ap-northeast-2.elb.amazonaws.com/mlapp/",
           rewrite: (path)=>path.replace(/^\/mlapp/,""),
         },
       }
